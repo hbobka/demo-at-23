@@ -1,0 +1,14 @@
+.fa-wifi {
+  mask: url('@/assets/images/fa-wifi.svg') center / 2rem no-repeat;
+  -webkit-mask: url('@/assets/images/fa-wifi.svg') center / 2rem no-repeat;
+  padding: 2rem;
+  background: var(--cci-white);
+}
+
+.fa-chart-area {
+  mask: url("@/assets/images/fa-chart-area.svg") center / 2rem no-repeat;
+  -webkit-mask: url("@/assets/images/fa-chart-area.svg") center / 2rem
+    no-repeat;
+  padding: 2rem;
+  background: var(--cci-white);
+}

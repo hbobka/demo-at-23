@@ -11,6 +11,6 @@ const windowHeight = computed(() => {
   <vue3dLoader
     :height="windowHeight"
     :filePath="['models/car.glb']"
-    :backgroundColor="0x000000"
+    :backgroundColor="0x222222"
   ></vue3dLoader>
 </template>

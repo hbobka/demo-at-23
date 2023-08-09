@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import TheScene from '../components/TheScene.vue'
+import TheScene from '../components/TheScene.vue';
+import TheHeader from '../components/TheHeader.vue';
 </script>
 
 <template>
-  <main>
-    <TheScene />
-  </main>
+  <TheHeader />
+  <TheScene />
 </template>

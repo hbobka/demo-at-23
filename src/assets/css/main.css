@@ -1,5 +1,9 @@
 @import './base.css';
+@import './icons.css';
 
+/**
+General
+*/
 body {
   overflow: hidden;
 }
