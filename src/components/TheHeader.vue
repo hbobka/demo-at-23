@@ -18,7 +18,7 @@ const fieldName = computed(() => 'Am Waldrand');
 header {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   position: absolute;
   width: 100%;
   padding: 1rem;
