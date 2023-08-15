@@ -22,7 +22,6 @@ const isActive = ref(false);
   <button v-if="!text && icon" @mousedown="isActive = true" @mouseup="isActive = false">
     <i :class="[{ active: isActive }, icon]"></i>
   </button>
-  
   <!-- icon + text -->
   <button v-if="text && icon" @mousedown="isActive = true" @mouseup="isActive = false">
     <i :class="[{ active: isActive }, icon]"></i>
