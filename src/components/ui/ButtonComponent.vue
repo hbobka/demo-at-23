@@ -19,25 +19,26 @@ const isActive = ref(false);
     {{ text }}
   </button>
   <!-- icon -->
-  <button v-if="!text && icon" @mousedown="isActive = true" @mouseup="isActive = false">
-    <i :class="[{ active: isActive }, icon]"></i>
+  <button v-if="!text && icon" :class="[{ active: isActive }]" @mousedown="isActive = !isActive">
+    <i :class="icon"></i>
   </button>
   <!-- icon + text -->
-  <button v-if="text && icon" @mousedown="isActive = true" @mouseup="isActive = false">
-    <i :class="[{ active: isActive }, icon]"></i>
+  <button v-if="text && icon" :class="[{ active: isActive }]" @mousedown="isActive = !isActive">
+    <i :class="icon"></i>
     {{ text }}
   </button>
 </template>
 
 <style scoped>
 button {
-  background: var(--cci-dark-gray);
-  border: 1px solid transparent;
-  border-radius: 2rem;
-  padding: 1rem 2rem;
-  font-size: 1rem;
+  background: var(--cci-black);
   color: var(--cci-white);
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding: 1.5rem 1rem;
+  margin: 0 0.5rem;
+  font-size: 1rem;
+  white-space: nowrap;
 }
 
 button:hover {
@@ -45,12 +46,13 @@ button:hover {
 }
 
 button:active {
-  background: var(--cci-white);
+  background: var(--cci-light-gray);
   color: var(--cci-dark-gray);
   cursor: pointer;
 }
 
 .active {
-  background: var(--cci-dark-gray);
+  background: var(--cci-light-gray);
+  color: var(--cci-dark-gray);
 }
 </style>

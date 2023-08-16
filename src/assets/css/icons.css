@@ -6,9 +6,38 @@
 }
 
 .fa-chart-area {
-  mask: url("@/assets/images/fa-chart-area.svg") center / 2rem no-repeat;
-  -webkit-mask: url("@/assets/images/fa-chart-area.svg") center / 2rem
-    no-repeat;
+  mask: url('@/assets/images/fa-chart-area.svg') center / 2rem no-repeat;
+  -webkit-mask: url('@/assets/images/fa-chart-area.svg') center / 2rem no-repeat;
   padding: 2rem;
   background: var(--cci-white);
+}
+
+.field_64x64 {
+  background: url('@/assets/images/field_64x64.svg') center / 4rem no-repeat;
+  padding: 2rem;
+}
+
+.tractor_64x64 {
+  background: url('@/assets/images/tractor_64x64.svg') center / 4rem no-repeat;
+  padding: 2rem;
+}
+
+.wifi_40x40 {
+  background: url('@/assets/images/wifi_40x40.svg') center / 2.5rem no-repeat;
+  padding: 1.25rem;
+}
+
+.internet_40x40 {
+  background: url('@/assets/images/internet_40x40.svg') center / 2.5rem no-repeat;
+  padding: 1.25rem;
+}
+
+.agrirouter_40x40 {
+  background: url('@/assets/images/agrirouter_40x40.svg') center / 2.5rem no-repeat;
+  padding: 1.25rem;
+}
+
+.rtk_40x40 {
+  background: url('@/assets/images/rtk_40x40.svg') center / 2.5rem no-repeat;
+  padding: 1.25rem;
 }

@@ -1,10 +1,12 @@
 :root {
+  --cci-black: #000;
   --cci-white: #fff;
   --cci-dark-gray: #222;
+  --cci-light-gray: #ececec;
   --cci-header-height: 4rem;
 }
 
-*,
+*,  
 *::before,
 *::after {
   box-sizing: border-box;

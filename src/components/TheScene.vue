@@ -6,21 +6,10 @@ const windowHeight = computed(() => {
   return window.innerHeight;
 });
 
-function onLoad() {
-  // moveCam();
-}
-function moveCam() {  
-  requestAnimationFrame(moveCam);
-  cameraInitialPosition.value.x += 0.01;
-  console.log(cameraInitialPosition.value.x);
-}
-
 const kroneInitialPosition = ref({ x: 0, y: 1, z: 0 });
 const kroneInitialRotation = ref({ x: 0, y: 4.6, z: 0 });
-
 const tractorInitialPosition = ref({ x: -6, y: 1, z: -0.7 });
 const tractorInitialRotation = ref({ x: -1.6, y: 0, z: 14 });
-
 const cameraInitialPosition = ref({ x: 5, y: 5, z: 10 });
 </script>
 
@@ -33,6 +22,5 @@ const cameraInitialPosition = ref({ x: 5, y: 5, z: 10 });
     :rotation="[kroneInitialRotation, tractorInitialRotation]"
     :cameraPosition="cameraInitialPosition"
     :backgroundColor="0x222222"
-    @load="onLoad"
   ></vue3dLoader>
 </template>
