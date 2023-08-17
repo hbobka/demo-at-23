@@ -10,7 +10,15 @@ defineProps({
   }
 });
 
+const emit = defineEmits<{
+  (event: 'isActive', state: boolean): void;
+}>();
+
 const isActive = ref(false);
+const onMouseDown = () => {
+  isActive.value = !isActive.value;
+  emit('isActive', isActive.value);
+};
 </script>
 
 <template>
@@ -19,11 +27,11 @@ const isActive = ref(false);
     {{ text }}
   </button>
   <!-- icon -->
-  <button v-if="!text && icon" :class="[{ active: isActive }]" @mousedown="isActive = !isActive">
+  <button v-if="!text && icon" :class="[{ active: isActive }]" @mousedown="onMouseDown">
     <i :class="icon"></i>
   </button>
   <!-- icon + text -->
-  <button v-if="text && icon" :class="[{ active: isActive }]" @mousedown="isActive = !isActive">
+  <button v-if="text && icon" :class="[{ active: isActive }]" @mousedown="onMouseDown">
     <i :class="icon"></i>
     {{ text }}
   </button>

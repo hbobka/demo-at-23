@@ -41,3 +41,13 @@
   background: url('@/assets/images/rtk_40x40.svg') center / 2.5rem no-repeat;
   padding: 1.25rem;
 }
+
+.cam1_64x64 {
+  background: url('@/assets/images/cam1_64x64.svg') center / 4rem no-repeat;
+  padding: 2rem;
+}
+
+.cam2_64x64 {
+  background: url('@/assets/images/cam2_64x64.svg') center / 4rem no-repeat;
+  padding: 2rem;
+}

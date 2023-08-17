@@ -21,6 +21,7 @@ defineProps({
 <style scoped>
 .toolbar-wrapper {
   background: var(--cci-black);
+  border-radius: 5px;
   padding: 0.5rem 1rem;
   margin: 0.5rem;
 }
