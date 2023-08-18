@@ -51,3 +51,8 @@
   background: url('@/assets/images/cam2_64x64.svg') center / 4rem no-repeat;
   padding: 2rem;
 }
+
+.rectangle_24x32 {
+  background: url('@/assets/images/rectangle_24x32.svg') center / 2rem no-repeat;
+  padding: 1rem;
+}
