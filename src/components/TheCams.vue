@@ -31,7 +31,6 @@ const onIsVideo2Shown = (state: boolean) => {
     <ButtonComponent
       v-if="isCamButton1Visible"
       icon="cam1_64x64"
-      class="cam-button"
       @is-active="onIs1Active"
     />
     <VideoComponent v-if="isVideo1Visible" class="video" @is-video-shown="onIsVideo1Shown" />
@@ -40,7 +39,6 @@ const onIsVideo2Shown = (state: boolean) => {
     <ButtonComponent
       v-if="isCamButton2Visible"
       icon="cam2_64x64"
-      class="cam-button"
       @is-active="onIs2Active"
     />
     <VideoComponent v-if="isVideo2Visible" class="video" @is-video-shown="onIsVideo2Shown" />
