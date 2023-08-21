@@ -9,29 +9,35 @@ const onCloseButtonClick = () => {
 </script>
 
 <template>
-  <div @click="onCloseButtonClick">
-    <button>x</button>
+  <div class="video-window">
+    <div class="close-button" @click="onCloseButtonClick">
+      <button>x</button>
+    </div>
+    <video width="480" height="270" autoplay loop muted>
+      <source src="videos/sample.mp4" type="video/mp4" />
+    </video>
   </div>
-  <video width="480" height="270" autoplay loop muted>
-    <source src="videos/sample.mp4" type="video/mp4" />
-  </video>
 </template>
 
 <style scoped>
-div {
+.video-window {
+  position: relative;
+  
+}
+.close-button {
   position: absolute;
   top: 0;
   right: 1rem;
 }
 
-button {
+.close-button button {
   background: none;
   border: none;
   font-size: 2rem;
   color: #fff;
 }
 
-button:hover {
+.close-button button:hover {
   cursor: pointer;
 }
 
