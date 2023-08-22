@@ -77,13 +77,13 @@ const closeDragElement = () => {
 <style scoped>
 .video-player-1 {
   position: absolute;
-  bottom: 7rem;
+  bottom: 1rem;
   left: 1rem;
 }
 
 .video-player-2 {
   position: absolute;
-  bottom: 7rem;
+  bottom: 1rem;
   right: 1rem;
 }
 </style>
