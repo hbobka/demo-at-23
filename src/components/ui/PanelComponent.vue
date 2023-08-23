@@ -9,14 +9,16 @@ defineProps({
 });
 
 const isPanelConentVisible = ref(false);
+const isActive = ref(false);
 const onPanelHeaderClick = () => {
   isPanelConentVisible.value = !isPanelConentVisible.value;
+  isActive.value = !isActive.value;
 };
 </script>
 
 <template>
   <div class="panel">
-    <div class="panel-header" @click="onPanelHeaderClick">
+    <div class="panel-header" :class="{ active: isActive }" @click="onPanelHeaderClick">
       {{ heading }}
     </div>
     <div v-if="isPanelConentVisible" class="panel-content">
@@ -30,11 +32,13 @@ const onPanelHeaderClick = () => {
   background: var(--cci-black);
   border-radius: 5px;
   margin: 0.5rem;
+  width: fit-content;
 }
 
 .panel-header {
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   color: var(--cci-white);
+  width: 100%;
 }
 
 .panel-header:hover {
@@ -42,7 +46,16 @@ const onPanelHeaderClick = () => {
 }
 
 .panel-content {
-  background: green;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--cci-white);
+  padding: 1rem;
   width: 100%;
+}
+
+.active {
+  background: var(--cci-light-gray);
+  color: var(--cci-black);
 }
 </style>

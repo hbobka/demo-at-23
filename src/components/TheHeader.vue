@@ -48,9 +48,9 @@ header div {
   transform: translateX(-50%);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .logo {
-    right: 1rem;
+    right: 1.5rem;
     top: 1rem;
     left: initial;
     transform: initial;
