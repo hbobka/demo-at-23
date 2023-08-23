@@ -29,14 +29,17 @@ const onPanelHeaderClick = () => {
 
 <style scoped>
 .panel {
-  background: var(--cci-black);
-  border-radius: 5px;
   margin: 0.5rem;
   width: fit-content;
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .panel-header {
+  border-radius: 5px;
   padding: 1rem;
+  background: var(--cci-black);
   color: var(--cci-white);
   width: 100%;
 }
@@ -47,6 +50,9 @@ const onPanelHeaderClick = () => {
 
 .panel-content {
   display: flex;
+  border-radius: 5px;
+  background-color: rgb(61 65 75 / 0.3);
+  backdrop-filter: blur(10px);
   flex-direction: column;
   align-items: center;
   color: var(--cci-white);
