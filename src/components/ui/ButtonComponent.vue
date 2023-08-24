@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
-defineProps({
+const props = defineProps({
   text: {
     type: String
   },
   icon: {
+    type: String
+  },
+  iconActiveColor: {
     type: String
   }
 });
@@ -19,6 +22,10 @@ const onMouseDown = () => {
   isActive.value = !isActive.value;
   emit('isActive', isActive.value);
 };
+
+const activeStyle = computed(() => {
+  return props.iconActiveColor && isActive.value ? `background: ${props.iconActiveColor}` : ``;
+});
 </script>
 
 <template>
@@ -28,7 +35,7 @@ const onMouseDown = () => {
   </button>
   <!-- icon -->
   <button v-if="!text && icon" :class="[{ active: isActive }]" @mousedown="onMouseDown">
-    <i :class="icon"></i>
+    <i :class="icon" :style="activeStyle"></i>
   </button>
   <!-- icon + text -->
   <button v-if="text && icon" :class="[{ active: isActive }]" @mousedown="onMouseDown">
