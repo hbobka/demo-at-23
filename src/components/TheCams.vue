@@ -30,7 +30,7 @@ const onIs2Active = (state: boolean) => {
 const onIsVideo2Shown = (state: boolean) => {
   isVideo2Visible.value = state;
   isCamButton2Visible.value = !state;
-  
+
   if (!state) {
     videoPlayer2.value.style.top = 'initial';
     videoPlayer2.value.style.left = 'initial';
@@ -43,6 +43,8 @@ let pos2 = 0;
 let pos3 = 0;
 let pos4 = 0;
 const startDrag = (e: any) => {
+  if (!e) return;
+
   pos3 = e.clientX;
   pos4 = e.clientY;
   document.onmouseup = closeDragElement;
@@ -50,6 +52,8 @@ const startDrag = (e: any) => {
 };
 
 const elementDrag = (e: any) => {
+  if (!e) return;
+
   e.preventDefault();
   pos1 = pos3 - e.clientX;
   pos2 = pos4 - e.clientY;
