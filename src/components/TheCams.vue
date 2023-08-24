@@ -30,9 +30,10 @@ const onIs2Active = (state: boolean) => {
 const onIsVideo2Shown = (state: boolean) => {
   isVideo2Visible.value = state;
   isCamButton2Visible.value = !state;
-
+  
   if (!state) {
     videoPlayer2.value.style.top = 'initial';
+    videoPlayer2.value.style.left = 'initial';
     videoPlayer2.value.style.right = '1rem';
   }
 };
@@ -41,22 +42,25 @@ let pos1 = 0;
 let pos2 = 0;
 let pos3 = 0;
 let pos4 = 0;
-const dragMouseDown = (e: any) => {
+const startDrag = (e: any) => {
   pos3 = e.clientX;
   pos4 = e.clientY;
   document.onmouseup = closeDragElement;
   document.onmousemove = elementDrag;
 };
+
 const elementDrag = (e: any) => {
   e.preventDefault();
   pos1 = pos3 - e.clientX;
   pos2 = pos4 - e.clientY;
   pos3 = e.clientX;
   pos4 = e.clientY;
-  e.target.parentElement.style.top = e.target.parentElement.offsetTop - pos2 + 'px';
-  e.target.parentElement.style.left = e.target.parentElement.offsetLeft - pos1 + 'px';  
-  
+
+  const target = e.target.closest('.video-player');
+  target.style.top = target.offsetTop - pos2 + 'px';
+  target.style.left = target.offsetLeft - pos1 + 'px';
 };
+
 const closeDragElement = () => {
   document.onmouseup = null;
   document.onmousemove = null;
@@ -64,13 +68,23 @@ const closeDragElement = () => {
 </script>
 
 <template>
-  <div class="video-player-1" ref="videoPlayer1" @mousedown.prevent="dragMouseDown">
+  <div class="video-player video-player-1" ref="videoPlayer1">
     <ButtonComponent v-if="isCamButton1Visible" icon="cam1_64x64" @is-active="onIs1Active" />
-    <VideoComponent v-if="isVideo1Visible" class="video" @is-video-shown="onIsVideo1Shown" />
+    <VideoComponent
+      v-if="isVideo1Visible"
+      class="video"
+      @is-video-shown="onIsVideo1Shown"
+      @drag="startDrag"
+    />
   </div>
-  <div class="video-player-2" ref="videoPlayer2" @mousedown.prevent="dragMouseDown">
+  <div class="video-player video-player-2" ref="videoPlayer2">
     <ButtonComponent v-if="isCamButton2Visible" icon="cam2_64x64" @is-active="onIs2Active" />
-    <VideoComponent v-if="isVideo2Visible" class="video" @is-video-shown="onIsVideo2Shown" />
+    <VideoComponent
+      v-if="isVideo2Visible"
+      class="video"
+      @is-video-shown="onIsVideo2Shown"
+      @drag="startDrag"
+    />
   </div>
 </template>
 
@@ -79,11 +93,15 @@ const closeDragElement = () => {
   position: absolute;
   bottom: 1rem;
   left: 1rem;
+  z-index: 9999;
+  height: fit-content;
 }
 
 .video-player-2 {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
+  z-index: 9999;
+  height: fit-content;
 }
 </style>
