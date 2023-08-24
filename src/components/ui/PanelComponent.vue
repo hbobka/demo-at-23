@@ -5,6 +5,9 @@ defineProps({
   heading: {
     type: String,
     default: 'Panel'
+  },
+  icon: {
+    type: String
   }
 });
 
@@ -19,7 +22,8 @@ const onPanelHeaderClick = () => {
 <template>
   <div class="panel">
     <div class="panel-header" :class="{ active: isActive }" @click="onPanelHeaderClick">
-      {{ heading }}
+      <i :class="icon"></i>
+      <p>{{ heading }} <span>kg/ha</span></p>      
     </div>
     <div v-if="isPanelConentVisible" class="panel-content">
       <slot></slot>
@@ -29,7 +33,7 @@ const onPanelHeaderClick = () => {
 
 <style scoped>
 .panel {
-  margin: 0.5rem;
+  margin:0 0.5rem;
   width: fit-content;
   box-shadow:
     0 4px 8px 0 rgba(0, 0, 0, 0.2),
@@ -38,14 +42,26 @@ const onPanelHeaderClick = () => {
 
 .panel-header {
   border-radius: 5px;
-  padding: 1rem;
+  padding: 0.25rem 1.25rem;
   background: var(--cci-black);
   color: var(--cci-white);
   width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .panel-header:hover {
   cursor: pointer;
+}
+
+.panel-header p {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.panel-header span {
+  font-weight: 300;
+  font-size: 1.2rem;
 }
 
 .panel-content {

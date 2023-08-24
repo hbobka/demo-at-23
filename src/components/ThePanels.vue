@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import PanelComponent from '@/components/ui/PanelComponent.vue';
+import ButtonComponent from '@/components/ui/ButtonComponent.vue';
 
 const startValPressure = ref(50);
 const onPressureClick = (plusOrMinus: 'plus' | 'minus') => {
   plusOrMinus === 'plus' ? (startValPressure.value += 5) : (startValPressure.value -= 5);
 };
 const headingPressure = computed(() => {
-  return `${startValPressure.value} kg/ha`;
+  return `${startValPressure.value} `;
 });
 
 const startValDistance = ref(50);
@@ -15,22 +16,24 @@ const onDistanceClick = (plusOrMinus: 'plus' | 'minus') => {
   plusOrMinus === 'plus' ? (startValDistance.value += 5) : (startValDistance.value -= 5);
 };
 const headingDistance = computed(() => {
-  return `${startValDistance.value} kg/ha`;
+  return `${startValDistance.value} `;
 });
 </script>
 
 <template>
   <div class="panel-wrapper">
     <!-- pressure -->
-    <PanelComponent :heading="headingPressure">
+    <PanelComponent :heading="headingPressure" icon="field_64x64">
       <div class="panel-wrapper-buttons">
         <button @click="onPressureClick('minus')">- 5%</button>
         <button @click="onPressureClick('plus')">+ 5%</button>
       </div>
       <button @click="startValPressure = 50">Reset</button>
     </PanelComponent>
+    <!-- link -->
+    <ButtonComponent icon="link_64x64" icon-active-color="#000"/>
     <!-- distance -->
-    <PanelComponent :heading="headingDistance">
+    <PanelComponent :heading="headingDistance" icon="field_64x64">
       <div class="panel-wrapper-buttons">
         <button @click="onDistanceClick('minus')">- 5%</button>
         <button @click="onDistanceClick('plus')">+ 5%</button>
@@ -43,10 +46,10 @@ const headingDistance = computed(() => {
 <style scoped>
 .panel-wrapper {
   position: absolute;
-  top: 6.5rem;
-  right: 1rem;
+  bottom: 1rem;
+  transform: translateX(-50%);
+  left: 50%;
   display: flex;
-  flex-direction: column;
   align-items: end;
 }
 
@@ -71,7 +74,6 @@ button {
   width: 100%;
   white-space: nowrap;
   border-radius: 5px;
-
 }
 
 button:hover {
