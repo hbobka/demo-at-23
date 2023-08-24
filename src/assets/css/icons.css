@@ -56,3 +56,10 @@
   background: url('@/assets/images/rectangle_24x32.svg') center / 2rem no-repeat;
   padding: 1rem;
 }
+
+.link_64x64 {
+  mask: url('@/assets/images/link_64x64.svg') center / 4rem no-repeat;
+  -webkit-mask: url('@/assets/images/link_64x64.svg') center / 4rem no-repeat;
+  padding: 2rem;
+  background: var(--cci-white);
+}
