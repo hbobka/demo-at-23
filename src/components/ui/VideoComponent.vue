@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import ButtonComponent from '@/components/ui/ButtonComponent.vue';
 
+defineProps({
+  video: {
+    type: String,
+    required: true
+  }
+});
+
 const emit = defineEmits<{
   (event: 'isVideoShown', state: boolean): void;
   (event: 'drag', e: Event): void;
@@ -15,16 +22,16 @@ const onCloseButtonClick = () => {
   <div class="video-window" @mousedown.prevent="(e) => emit('drag', e)">
     <div class="video-window__content">
       <div class="close-button" @click="onCloseButtonClick">
-        <button>x</button>
+        <button><i class="fa-xmark"></i></button>
       </div>
       <video width="480" height="270" autoplay loop muted>
-        <source src="videos/sample.mp4" type="video/mp4" />
+        <source :src="`videos/${video}.mp4`" type="video/mp4" />
       </video>
     </div>
     <div class="video-window__action-buttons">
-      <ButtonComponent icon="field_64x64" />
-      <ButtonComponent icon="field_64x64" />
-      <ButtonComponent icon="field_64x64" />
+      <ButtonComponent icon="fa-pause" />
+      <ButtonComponent icon="fa-camera" />
+      <ButtonComponent icon="fa-compare" />
     </div>
   </div>
 </template>
@@ -45,7 +52,7 @@ const onCloseButtonClick = () => {
 }
 .close-button {
   position: absolute;
-  top: 0;
+  top: 0.25rem;
   right: 1rem;
 }
 

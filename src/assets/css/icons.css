@@ -63,3 +63,31 @@
   padding: 2rem;
   background: var(--cci-white);
 }
+
+.fa-pause {
+  mask: url('@/assets/images/fa-pause.svg') center / 1.25rem no-repeat;
+  -webkit-mask: url('@/assets/images/fa-pause.svg') center / 1.25rem no-repeat;
+  padding: 0.75rem;
+  background: var(--cci-white);
+}
+
+.fa-camera {
+  mask: url('@/assets/images/fa-camera.svg') center / 2rem no-repeat;
+  -webkit-mask: url('@/assets/images/fa-camera.svg') center / 2rem no-repeat;
+  padding: 1rem;
+  background: var(--cci-white);
+}
+
+.fa-compare {
+  mask: url('@/assets/images/fa-compare.svg') center / 1.75rem no-repeat;
+  -webkit-mask: url('@/assets/images/fa-compare.svg') center / 1.75rem no-repeat;
+  padding: 1.25rem;
+  background: var(--cci-white);
+}
+
+.fa-xmark {
+  mask: url('@/assets/images/fa-xmark.svg') center / 1.5rem no-repeat;
+  -webkit-mask: url('@/assets/images/fa-xmark.svg') center / 1.5rem no-repeat;
+  padding: 1rem;
+  background: var(--cci-white);
+}

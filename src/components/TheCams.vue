@@ -77,6 +77,7 @@ const closeDragElement = () => {
     <VideoComponent
       v-if="isVideo1Visible"
       class="video"
+      video="BigPack_rear-cam"
       @is-video-shown="onIsVideo1Shown"
       @drag="startDrag"
     />
@@ -86,6 +87,7 @@ const closeDragElement = () => {
     <VideoComponent
       v-if="isVideo2Visible"
       class="video"
+      video="BigPack_front-cam"
       @is-video-shown="onIsVideo2Shown"
       @drag="startDrag"
     />
