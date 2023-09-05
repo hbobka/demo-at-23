@@ -50,5 +50,7 @@ const lights = [
     :cameraPosition="cameraInitialPosition"
     :backgroundColor="0x222222"
     :lights="lights"
+    :verticalCtrl="false"
+    :horizontalCtrl="true"
   ></vue3dLoader>
 </template>
