@@ -91,3 +91,10 @@
   padding: 1rem;
   background: var(--cci-white);
 }
+
+.logo-ccisobus {
+  mask: url('@/assets/images/logo_ccisobus.svg') center / 10rem no-repeat;
+  -webkit-mask: url('@/assets/images/logo_ccisobus.svg') center / 10rem no-repeat;
+  padding: 5rem;
+  background: var(--cci-white);
+}

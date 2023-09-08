@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import LogoComponent from '@/components/ui/LogoComponent.vue';
 import ButtonComponent from '@/components/ui/ButtonComponent.vue';
 import ToolbarComponent from '@/components/ui/ToolbarComponent.vue';
 
@@ -14,7 +13,7 @@ const currentTime = computed(() => '14:31');
       <ButtonComponent icon="field_64x64" />
       <ButtonComponent icon="field_64x64" :text="fieldName" />
     </div>
-    <LogoComponent class="logo" logo="logo_ccisobus" />
+    <i class="logo-ccisobus"></i>
     <div>
       <ToolbarComponent
         :icons="['wifi_40x40', 'internet_40x40', 'agrirouter_40x40', 'rtk_40x40']"
@@ -41,7 +40,7 @@ header div {
   align-items: center;
 }
 
-.logo {
+.logo-ccisobus {
   position: absolute;
   margin: auto;
   left: 50%;
