@@ -24,7 +24,7 @@ const onCloseButtonClick = () => {
       <div class="close-button" @click="onCloseButtonClick">
         <button><i class="fa-xmark"></i></button>
       </div>
-      <video width="480" height="270" autoplay loop muted>
+      <video width="480" height="270" autoplay loop muted preload="none">
         <source :src="`videos/${video}.mp4`" type="video/mp4" />
       </video>
     </div>
