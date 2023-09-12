@@ -38,7 +38,7 @@ const lights = [
 <template>
   <vue3dLoader
     :height="windowHeight"
-    :filePath="['models/krone/NextGen_Animation_04.fbx']"
+    :filePath="['models/krone/NextGen_Animation_05.fbx']"
     :cameraPosition="cameraInitialPosition"
     :backgroundColor="0x222222"
     :autoPlay="true"
