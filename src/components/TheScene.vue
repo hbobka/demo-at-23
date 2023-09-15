@@ -5,7 +5,6 @@ import { vue3dLoader } from 'vue-3d-loader';
 const windowHeight = computed(() => {
   return window.innerHeight;
 });
-const cameraInitialPosition = ref({ x: -500, y: 200, z: 3000 });
 
 const lights = [
   {
@@ -33,6 +32,8 @@ const lights = [
     intensity: 0.8
   }
 ];
+const cameraInitialPosition = ref({ x: -1000, y: 1000, z: 2000 });
+const initialPosition = ref({ x: 500, y: 0, z: -1000 });
 </script>
 
 <template>
@@ -40,7 +41,10 @@ const lights = [
     :height="windowHeight"
     :filePath="['models/krone/NextGen_Animation_05.fbx']"
     :cameraPosition="cameraInitialPosition"
+    :position="initialPosition"
     :backgroundColor="0x222222"
     :autoPlay="true"
+    :horizontalCtrl="true"
+    :verticalCtrl="false"
   ></vue3dLoader>
 </template>
