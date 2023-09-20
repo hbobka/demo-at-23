@@ -54,6 +54,7 @@ const onCloseButtonClick = () => {
   position: absolute;
   top: 0.25rem;
   right: 1rem;
+  z-index: 1000;
 }
 
 .close-button button {

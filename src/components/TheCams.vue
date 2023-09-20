@@ -75,9 +75,9 @@ const closeDragElement = () => {
   <div class="video-player video-player-1" ref="videoPlayer1">
     <ButtonComponent v-if="isCamButton1Visible" icon="cam1_64x64" @is-active="onIs1Active" />
     <VideoComponent
-      v-if="isVideo1Visible"
+      v-show="isVideo1Visible"
       class="video"
-      video="rear_cam"
+      video="rear-cam"
       @is-video-shown="onIsVideo1Shown"
       @drag="startDrag"
     />
@@ -85,9 +85,9 @@ const closeDragElement = () => {
   <div class="video-player video-player-2" ref="videoPlayer2">
     <ButtonComponent v-if="isCamButton2Visible" icon="cam2_64x64" @is-active="onIs2Active" />
     <VideoComponent
-      v-if="isVideo2Visible"
+      v-show="isVideo2Visible"
       class="video"
-      video="front_cam"
+      video="front-cam"
       @is-video-shown="onIsVideo2Shown"
       @drag="startDrag"
     />
