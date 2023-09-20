@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { vue3dLoader } from 'vue-3d-loader';
+import { useUI } from '@/composables/ui';
 
 const windowHeight = computed(() => {
   return window.innerHeight;
@@ -32,8 +33,18 @@ const lights = [
     intensity: 0.8
   }
 ];
-const cameraInitialPosition = ref({ x: -1000, y: 1000, z: 2000 });
-const initialPosition = ref({ x: 500, y: 0, z: -1000 });
+const cameraInitialPosition = ref({ x: -500, y: 1000, z: 1000 });
+const initialPosition = ref({ x: 0, y: -100, z: 100 });
+
+const isLoaded = ref(false);
+const { setSceneAssetsLoaded } = useUI();
+
+const onLoad = () => {
+  if (!isLoaded.value) {
+    isLoaded.value = true;
+    setSceneAssetsLoaded(true);
+  }
+};
 </script>
 
 <template>
@@ -43,8 +54,9 @@ const initialPosition = ref({ x: 500, y: 0, z: -1000 });
     :cameraPosition="cameraInitialPosition"
     :position="initialPosition"
     :backgroundColor="0x222222"
-    :autoPlay="true"
+    :autoPlay="isLoaded"
     :horizontalCtrl="true"
     :verticalCtrl="false"
+    @load="onLoad"
   ></vue3dLoader>
 </template>

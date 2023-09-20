@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import ButtonComponent from '@/components/ui/ButtonComponent.vue';
+import { watch, ref } from 'vue';
+import { useUI } from '@/composables/ui';
+
+const { uiState } = useUI();
 
 defineProps({
   video: {
@@ -16,6 +20,16 @@ const emit = defineEmits<{
 const onCloseButtonClick = () => {
   emit('isVideoShown', false);
 };
+
+const videoPlayer = ref<any>(null);
+watch(
+  () => uiState.value.sceneAssetsLoaded,
+  (loaded) => {
+    if (loaded) {
+      videoPlayer.value.play();      
+    }
+  }
+);
 </script>
 
 <template>
@@ -24,8 +38,8 @@ const onCloseButtonClick = () => {
       <div class="close-button" @click="onCloseButtonClick">
         <button><i class="fa-xmark"></i></button>
       </div>
-      <video width="480" height="270" autoplay loop muted>
-        <source :src="`videos/${video}.mp4`" type="video/mp4" />
+      <video ref="videoPlayer" width="480" height="270" loop muted>
+        <source :src="`videos/${video}.mp4`" type="video/mp4"/>
       </video>
     </div>
     <div class="video-window__action-buttons">
