@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import ButtonComponent from '@/components/ui/ButtonComponent.vue';
-import { watch, ref } from 'vue';
+import { watch, ref, onMounted } from 'vue';
 import { useUI } from '@/composables/ui';
 
-const { uiState } = useUI();
+const { uiState, setVideoLoaded } = useUI();
 
 defineProps({
   video: {
@@ -23,13 +23,19 @@ const onCloseButtonClick = () => {
 
 const videoPlayer = ref<any>(null);
 watch(
-  () => uiState.value.sceneAssetsLoaded,
-  (loaded) => {
-    if (loaded) {
-      videoPlayer.value.play();      
+  [() => uiState.value.videoLoaded, () => uiState.value.sceneLoaded],
+  ([videoLoaded, sceneLoaded]) => {
+    if (videoLoaded && sceneLoaded) {
+      videoPlayer.value.play();
     }
   }
 );
+
+onMounted(() => {
+  videoPlayer.value.addEventListener('loadeddata', () => {
+    setVideoLoaded(true);
+  });
+});
 </script>
 
 <template>
@@ -39,7 +45,7 @@ watch(
         <button><i class="fa-xmark"></i></button>
       </div>
       <video ref="videoPlayer" width="480" height="270" loop muted>
-        <source :src="`videos/${video}.mp4`" type="video/mp4"/>
+        <source :src="`videos/${video}.mp4`" type="video/mp4" />
       </video>
     </div>
     <div class="video-window__action-buttons">

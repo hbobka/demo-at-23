@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { vue3dLoader } from 'vue-3d-loader';
 import { useUI } from '@/composables/ui';
 
@@ -36,27 +36,37 @@ const lights = [
 const cameraInitialPosition = ref({ x: -500, y: 1000, z: 1000 });
 const initialPosition = ref({ x: 0, y: -100, z: 100 });
 
+const { uiState, setSceneLoaded } = useUI();
 const isLoaded = ref(false);
-const { setSceneAssetsLoaded } = useUI();
-
 const onLoad = () => {
   if (!isLoaded.value) {
     isLoaded.value = true;
-    setSceneAssetsLoaded(true);
+    setSceneLoaded(true);
   }
 };
+
+const shouldPlay = ref(false);
+watch(
+  [() => uiState.value.videoLoaded, () => uiState.value.sceneLoaded],
+  ([videoLoaded, sceneLoaded]) => {
+    if (videoLoaded && sceneLoaded) {
+      shouldPlay.value = true;
+    }
+  }
+);
 </script>
 
 <template>
   <vue3dLoader
     :height="windowHeight"
-    :filePath="['models/krone/NextGen_Animation_05.fbx']"
+    :filePath="['models/krone/NextGen_Animation_06_dunkel.fbx']"
     :cameraPosition="cameraInitialPosition"
     :position="initialPosition"
     :backgroundColor="0x222222"
-    :autoPlay="isLoaded"
+    :autoPlay="shouldPlay"
     :horizontalCtrl="true"
     :verticalCtrl="false"
+    :lights="lights"
     @load="onLoad"
   ></vue3dLoader>
 </template>
