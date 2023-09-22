@@ -33,27 +33,21 @@ const lights = [
     intensity: 0.8
   }
 ];
-const cameraInitialPosition = ref({ x: -500, y: 1000, z: 1000 });
-const initialPosition = ref({ x: 0, y: -100, z: 100 });
+const cameraInitialPosition = ref({ x: -500, y: 2000, z: 1000 });
+const initialPosition = ref({ x: 10, y: 500, z: -500 });
 
-const { uiState, setSceneLoaded } = useUI();
-const isLoaded = ref(false);
-const onLoad = () => {
-  if (!isLoaded.value) {
-    isLoaded.value = true;
+const { setSceneLoaded } = useUI();
+const process = ref(0);
+const shouldPlay = ref(false);
+const onProcess = (event: any) => {
+  process.value = Math.floor((event.loaded / event.total) * 100);
+
+  if (process.value === 100) {
+    shouldPlay.value = true;
     setSceneLoaded(true);
+    console.log('3d loaded');
   }
 };
-
-const shouldPlay = ref(false);
-watch(
-  [() => uiState.value.videoLoaded, () => uiState.value.sceneLoaded],
-  ([videoLoaded, sceneLoaded]) => {
-    if (videoLoaded && sceneLoaded) {
-      shouldPlay.value = true;
-    }
-  }
-);
 </script>
 
 <template>
@@ -67,6 +61,6 @@ watch(
     :horizontalCtrl="true"
     :verticalCtrl="false"
     :lights="lights"
-    @load="onLoad"
+    @process="onProcess"
   ></vue3dLoader>
 </template>
