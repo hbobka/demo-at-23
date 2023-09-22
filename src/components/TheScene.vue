@@ -45,7 +45,6 @@ const onProcess = (event: any) => {
   if (process.value === 100) {
     shouldPlay.value = true;
     setSceneLoaded(true);
-    console.log('3d loaded');
   }
 };
 </script>
