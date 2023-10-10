@@ -3,11 +3,13 @@ import TheScene from '@/components/TheScene.vue';
 import TheHeader from '@/components/TheHeader.vue';
 import TheCams from '@/components/TheCams.vue';
 import ThePanels from '@/components/ThePanels.vue';
+import TheBottomBar from '@/components/TheBottomBar.vue';
 </script>
 
 <template>
   <TheHeader />
   <TheCams />
-  <TheScene />
   <ThePanels />
+  <TheBottomBar />
+  <TheScene />
 </template>

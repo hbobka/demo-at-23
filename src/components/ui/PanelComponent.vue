@@ -11,19 +11,14 @@ defineProps({
   }
 });
 
-const isPanelConentVisible = ref(false);
-const isActive = ref(false);
-const onPanelHeaderClick = () => {
-  isPanelConentVisible.value = !isPanelConentVisible.value;
-  isActive.value = !isActive.value;
-};
+const isPanelConentVisible = ref(true);
 </script>
 
 <template>
   <div class="panel">
-    <div class="panel-header" :class="{ active: isActive }" @click="onPanelHeaderClick">
+    <div class="panel-header">
       <i :class="icon"></i>
-      <p>{{ heading }} <span>kg/ha</span></p>      
+      <p>{{ heading }}</p>      
     </div>
     <div v-if="isPanelConentVisible" class="panel-content">
       <slot></slot>

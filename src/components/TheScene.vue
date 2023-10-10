@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
+import { computed, ref } from 'vue';
 import { vue3dLoader } from 'vue-3d-loader';
 import { useUI } from '@/composables/ui';
 
