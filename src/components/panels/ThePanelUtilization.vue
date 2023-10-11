@@ -32,8 +32,8 @@ const headingUtilization2 = computed(() => {
     <!-- pressure -->
     <PanelComponent :heading="headingUtilization1" icon="field_64x64">
       <div class="panel-wrapper-buttons">
-        <button @click="onUtilization1Click('minus')">- 5%</button>
-        <button @click="onUtilization1Click('plus')">+ 5%</button>
+        <button @click="onUtilization1Click('minus')">- 5 %</button>
+        <button @click="onUtilization1Click('plus')">+ 5 %</button>
       </div>
       <ProgressComponent :percentage="startValUtilization1" />
     </PanelComponent>
@@ -45,8 +45,8 @@ const headingUtilization2 = computed(() => {
     <div>
       <PanelComponent :heading="headingUtilization2" icon="field_64x64">
         <div class="panel-wrapper-buttons">
-          <button @click="onUtilization2Click('minus')">- 5%</button>
-          <button @click="onUtilization2Click('plus')">+ 5%</button>
+          <button @click="onUtilization2Click('minus')">- 5 %</button>
+          <button @click="onUtilization2Click('plus')">+ 5 %</button>
         </div>
         <ProgressComponent :percentage="startValUtilization2" />
       </PanelComponent>

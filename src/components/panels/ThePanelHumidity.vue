@@ -17,8 +17,8 @@ const headingLength = computed(() => {
     <!-- pressure -->
     <PanelComponent :heading="headingLength" icon="field_64x64">
       <div class="panel-wrapper-buttons">
-        <button @click="onHumidityClick('minus')">- 5%</button>
-        <button @click="onHumidityClick('plus')">+ 5%</button>
+        <button @click="onHumidityClick('minus')">- 5 %</button>
+        <button @click="onHumidityClick('plus')">+ 5 %</button>
       </div>
       <ProgressComponent :percentage="startValHumidity" />
     </PanelComponent>

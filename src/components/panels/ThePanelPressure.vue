@@ -16,8 +16,8 @@ const headingPressure = computed(() => {
     <!-- pressure -->
     <PanelComponent :heading="headingPressure" icon="field_64x64">
       <div class="panel-wrapper-buttons">
-        <button @click="onPressureClick('minus')">- 5%</button>
-        <button @click="onPressureClick('plus')">+ 5%</button>
+        <button @click="onPressureClick('minus')">- 5 bar</button>
+        <button @click="onPressureClick('plus')">+ 5 bar</button>
       </div>
       <button @click="startValPressure = 50">Reset</button>
     </PanelComponent>

@@ -20,8 +20,8 @@ const headingLength = computed(() => {
     <!-- pressure -->
     <PanelComponent :heading="headingLength" icon="field_64x64">
       <div class="panel-wrapper-buttons">
-        <button @click="onPressureClick('minus')">- 5%</button>
-        <button @click="onPressureClick('plus')">+ 5%</button>
+        <button @click="onPressureClick('minus')">- 5 cm</button>
+        <button @click="onPressureClick('plus')">+ 5 cm</button>
       </div>
       <ProgressComponent :percentage="startValLength" />
     </PanelComponent>
