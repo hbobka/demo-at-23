@@ -10,7 +10,9 @@ const {
   setShowPanelHumidity
 } = useUI();
 
-const onClick = (panel: string) => {
+type panelType = 'length' | 'pressure' | 'utilization' | 'humidity';
+
+const onClick = (panel: panelType) => {
   switch (panel) {
     case 'pressure':
       if (!uiState.value.showPanelPressure) {
@@ -44,21 +46,20 @@ const onClick = (panel: string) => {
       break;
   }
 };
+
+const activeColor = '#000';
+const buttons: { name: panelType; icon: string }[] = [
+  { name: 'length', icon: 'fa-ruler-horizontal' },
+  { name: 'utilization', icon: 'fa-chart-simple' },
+  { name: 'pressure', icon: 'fa-gauge' },
+  { name: 'humidity', icon: 'fa-droplet' }
+];
 </script>
 
 <template>
   <div class="toolbar-wrapper">
-    <span @click="onClick('length')">
-      <ButtonComponent icon="field_64x64" />
-    </span>
-    <span @click="onClick('utilization')">
-      <ButtonComponent icon="field_64x64" />
-    </span>
-    <span @click="onClick('pressure')">
-      <ButtonComponent icon="field_64x64" />
-    </span>
-    <span @click="onClick('humidity')">
-      <ButtonComponent icon="field_64x64" />
+    <span v-for="button in buttons" :key="button.name" @click="onClick(button.name)">
+      <ButtonComponent :icon="button.icon" :icon-active-color="activeColor" />
     </span>
   </div>
 </template>
