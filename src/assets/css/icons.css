@@ -98,3 +98,31 @@
   padding: 5rem;
   background: var(--cci-white);
 }
+
+.fa-ruler-horizontal {
+  mask: url('@/assets/images/fa-ruler-horizontal.svg') center / 2rem no-repeat;
+  -webkit-mask: url('@/assets/images/fa-ruler-horizontal.svg') center / 2rem no-repeat;
+  padding: 1rem;
+  background: var(--cci-white);
+}
+
+.fa-gauge {
+  mask: url('@/assets/images/fa-gauge.svg') center / 2rem no-repeat;
+  -webkit-mask: url('@/assets/images/fa-gauge.svg') center / 2rem no-repeat;
+  padding: 1rem;
+  background: var(--cci-white);
+}
+
+.fa-chart-simple {
+  mask: url('@/assets/images/fa-chart-simple.svg') center / 2rem no-repeat;
+  -webkit-mask: url('@/assets/images/fa-chart-simple.svg') center / 2rem no-repeat;
+  padding: 1rem;
+  background: var(--cci-white);
+}
+
+.fa-droplet {
+  mask: url('@/assets/images/fa-droplet.svg') center / 2rem no-repeat;
+  -webkit-mask: url('@/assets/images/fa-droplet.svg') center / 2rem no-repeat;
+  padding: 1rem;
+  background: var(--cci-white);
+}

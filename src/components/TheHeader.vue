@@ -13,7 +13,9 @@ const currentTime = computed(() => '14:31');
       <ButtonComponent icon="field_64x64" />
       <ButtonComponent icon="field_64x64" :text="fieldName" />
     </div>
-    <i class="logo-ccisobus"></i>
+    <div>
+      <i class="logo-ccisobus"></i>
+    </div>
     <div>
       <ToolbarComponent
         :icons="['wifi_40x40', 'internet_40x40', 'agrirouter_40x40', 'rtk_40x40']"
@@ -47,12 +49,21 @@ header div {
   transform: translateX(-50%);
 }
 
-@media (max-width: 1024px) {
-  .logo {
-    right: 1.5rem;
-    top: 1rem;
+@media (max-width: 1400px) {
+  .logo-ccisobus {
     left: initial;
     transform: initial;
+    right: 2rem;
+    top: 4rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .logo-ccisobus {
+    left: initial;
+    transform: initial;
+    top: initial;
+    right: 2rem;
   }
 }
 </style>
