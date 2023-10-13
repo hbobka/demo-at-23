@@ -7,33 +7,33 @@ const windowHeight = computed(() => {
   return window.innerHeight;
 });
 
-const lights = [
-  {
-    type: 'AmbientLight',
-    color: '#f2f2f2',
-    intensity: 0.4
-  },
-  {
-    type: 'DirectionalLight',
-    position: { x: 100, y: 10, z: 100 },
-    color: '#f2f2f2',
-    intensity: 0.8
-  },
-  {
-    type: 'PointLight',
-    color: '#f2f2f2',
-    position: { x: 200, y: -200, z: 100 },
-    intensity: 0.8
-  },
-  {
-    type: 'HemisphereLight',
-    skyColor: '#000',
-    groundColor: '#f2f2f2',
-    position: { x: 200, y: -200, z: 100 },
-    intensity: 0.8
-  }
-];
-const cameraInitialPosition = ref({ x: -500, y: 2000, z: 1000 });
+// const lights = [
+//   {
+//     type: 'AmbientLight',
+//     color: '#f2f2f2',
+//     intensity: 0.6
+//   },
+//   {
+//     type: 'DirectionalLight',
+//     position: { x: 100, y: 10, z: 100 },
+//     color: '#f2f2f2',
+//     intensity: 0.6
+//   },
+//   {
+//     type: 'PointLight',
+//     color: '#f2f2f2',
+//     position: { x: 200, y: -200, z: 100 },
+//     intensity: 0.6
+//   },
+//   {
+//     type: 'HemisphereLight',
+//     skyColor: '#f2f2f2',
+//     groundColor: '#f2f2f2',
+//     position: { x: 200, y: -200, z: 100 },
+//     intensity: 0.8
+//   }
+// ];
+const cameraInitialPosition = ref({ x: 500, y: 2000, z: 1000 });
 const initialPosition = ref({ x: 10, y: 500, z: -500 });
 
 const { setSceneLoaded } = useUI();
@@ -52,14 +52,13 @@ const onProcess = (event: any) => {
 <template>
   <vue3dLoader
     :height="windowHeight"
-    :filePath="['models/krone/NextGen_Animation_06_dunkel.fbx']"
+    :filePath="['models/krone/NextGen_Animation_09.fbx']"
     :cameraPosition="cameraInitialPosition"
     :position="initialPosition"
     :backgroundColor="0x222222"
     :autoPlay="shouldPlay"
     :horizontalCtrl="true"
     :verticalCtrl="false"
-    :lights="lights"
-    @process="onProcess"
+    @process="onProcess"    
   ></vue3dLoader>
 </template>
