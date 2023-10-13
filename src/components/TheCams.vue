@@ -15,18 +15,18 @@ let pos4 = 0;
 const startDrag = (e: any) => {
   if (!e) return;
 
-  pos3 = e.clientX || e.touches[0]?.clientX;
-  pos4 = e.clientY || e.touches[0]?.clientY;
-
+  pos3 = e.clientX || e.changedTouches[0]?.clientX;
+  pos4 = e.clientY || e.changedTouches[0]?.clientY;
+  
   document.onmouseup = closeDragElement;
   document.onmousemove = elementDrag;
 };
 
 const elementDrag = (e: any) => {
   if (!e) return;
-
+  
   e.preventDefault();
-
+  
   pos1 = pos3 - (e.clientX || e.changedTouches[0]?.clientX);
   pos2 = pos4 - (e.clientY || e.changedTouches[0]?.clientY);
   pos3 = e.clientX || e.changedTouches[0]?.clientX;
@@ -40,8 +40,6 @@ const elementDrag = (e: any) => {
 const closeDragElement = () => {
   document.onmouseup = null;
   document.onmousemove = null;
-  removeEventListener('touchmove', elementDrag);
-  removeEventListener('touchend', closeDragElement);
 };
 
 const videoPlayer1 = ref();
