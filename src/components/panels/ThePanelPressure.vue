@@ -27,9 +27,8 @@ const headingPressure = computed(() => {
 <style scoped>
 .panel-wrapper {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  left: 1rem;
+  top: 7rem;
   display: flex;
 }
 

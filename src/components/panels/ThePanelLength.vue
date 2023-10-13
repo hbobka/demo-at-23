@@ -31,11 +31,8 @@ const headingLength = computed(() => {
 <style scoped>
 .panel-wrapper {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  max-height: 20rem;
-  max-width: 40rem;
+  right: 1rem;
+  top: 22rem;
 }
 
 .panel-wrapper-buttons {
