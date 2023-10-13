@@ -1,7 +1,48 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import VideoComponent from '@/components/ui/VideoComponent.vue';
 import ButtonComponent from '@/components/ui/ButtonComponent.vue';
+
+onMounted(() => {
+  addEventListener('touchmove', elementDrag);
+  addEventListener('touchend', closeDragElement);
+});
+
+let pos1 = 0;
+let pos2 = 0;
+let pos3 = 0;
+let pos4 = 0;
+const startDrag = (e: any) => {
+  if (!e) return;
+
+  pos3 = e.clientX || e.touches[0]?.clientX;
+  pos4 = e.clientY || e.touches[0]?.clientY;
+
+  document.onmouseup = closeDragElement;
+  document.onmousemove = elementDrag;
+};
+
+const elementDrag = (e: any) => {
+  if (!e) return;
+
+  e.preventDefault();
+
+  pos1 = pos3 - (e.clientX || e.changedTouches[0]?.clientX);
+  pos2 = pos4 - (e.clientY || e.changedTouches[0]?.clientY);
+  pos3 = e.clientX || e.changedTouches[0]?.clientX;
+  pos4 = e.clientY || e.changedTouches[0]?.clientY;
+
+  const target = e.target?.closest('.video-player');
+  target.style.top = target.offsetTop - pos2 + 'px';
+  target.style.left = target.offsetLeft - pos1 + 'px';
+};
+
+const closeDragElement = () => {
+  document.onmouseup = null;
+  document.onmousemove = null;
+  removeEventListener('touchmove', elementDrag);
+  removeEventListener('touchend', closeDragElement);
+};
 
 const videoPlayer1 = ref();
 const videoPlayer2 = ref();
@@ -11,6 +52,7 @@ const onIs1Active = (state: boolean) => {
   isVideo1Visible.value = state;
   isCamButton1Visible.value = !state;
 };
+
 const onIsVideo1Shown = (state: boolean) => {
   isVideo1Visible.value = state;
   isCamButton1Visible.value = !state;
@@ -36,38 +78,6 @@ const onIsVideo2Shown = (state: boolean) => {
     videoPlayer2.value.style.left = 'initial';
     videoPlayer2.value.style.right = '1rem';
   }
-};
-
-let pos1 = 0;
-let pos2 = 0;
-let pos3 = 0;
-let pos4 = 0;
-const startDrag = (e: any) => {
-  if (!e) return;
-
-  pos3 = e.clientX;
-  pos4 = e.clientY;
-  document.onmouseup = closeDragElement;
-  document.onmousemove = elementDrag;
-};
-
-const elementDrag = (e: any) => {
-  if (!e) return;
-
-  e.preventDefault();
-  pos1 = pos3 - e.clientX;
-  pos2 = pos4 - e.clientY;
-  pos3 = e.clientX;
-  pos4 = e.clientY;
-
-  const target = e.target.closest('.video-player');
-  target.style.top = target.offsetTop - pos2 + 'px';
-  target.style.left = target.offsetLeft - pos1 + 'px';
-};
-
-const closeDragElement = () => {
-  document.onmouseup = null;
-  document.onmousemove = null;
 };
 </script>
 

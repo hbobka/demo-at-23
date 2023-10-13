@@ -39,9 +39,13 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="video-window" @mousedown.prevent="(e) => emit('drag', e)">
+  <div
+    class="video-window"
+    @mousedown.prevent="(e) => emit('drag', e)"
+    @touchstart.prevent="(e) => emit('drag', e)"
+  >
     <div class="video-window__content">
-      <div class="close-button" @click="onCloseButtonClick">
+      <div class="close-button" @click="onCloseButtonClick" @touchend="onCloseButtonClick">
         <button><i class="fa-xmark"></i></button>
       </div>
       <video ref="videoPlayer" width="480" height="270" loop muted>
