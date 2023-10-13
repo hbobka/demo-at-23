@@ -10,10 +10,6 @@ const props = defineProps({
   },
   iconActiveColor: {
     type: String
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false
   }
 });
 
@@ -38,13 +34,8 @@ const activeStyle = computed(() => {
     {{ text }}
   </button>
   <!-- icon -->
-  <button
-    v-if="!text && icon"
-    :class="[{ active: isActive }]"
-    @mousedown="onMouseDown"
-    :disabled="isDisabled"
-  >
-    <i :class="[icon, {disabled: isDisabled }]" :style="activeStyle"></i>
+  <button v-if="!text && icon" :class="[{ active: isActive }]" @mousedown="onMouseDown">
+    <i :class="[icon]" :style="activeStyle"></i>
   </button>
   <!-- icon + text -->
   <button v-if="text && icon" :class="[{ active: isActive }]" @mousedown="onMouseDown">
@@ -78,9 +69,5 @@ button:active {
 .active {
   background: var(--cci-light-gray);
   color: var(--cci-dark-gray);
-}
-
-.disabled {
-  opacity: 0.25;
 }
 </style>
