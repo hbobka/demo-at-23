@@ -1,17 +1,13 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import PanelComponent from '@/components/ui/PanelComponent.vue';
 import ProgressComponent from '@/components/ui/ProgressComponent.vue';
+import { useUI } from '@/composables/ui';
 
-const startValLength = ref(50);
-const onPressureClick = (plusOrMinus: 'plus' | 'minus') => {
-  if (startValLength.value === 0 && plusOrMinus === 'minus') return;
-  if (startValLength.value === 100 && plusOrMinus === 'plus') return;
+const { uiState } = useUI();
 
-  plusOrMinus === 'plus' ? (startValLength.value += 5) : (startValLength.value -= 5);
-};
 const headingLength = computed(() => {
-  return `${startValLength.value} cm`;
+  return `${uiState.value.panelSliderLengthPercentage * 2} cm`;
 });
 </script>
 
@@ -19,11 +15,11 @@ const headingLength = computed(() => {
   <div class="panel-wrapper">
     <!-- pressure -->
     <PanelComponent :heading="headingLength" icon="field_64x64">
-      <div class="panel-wrapper-buttons">
+      <!-- <div class="panel-wrapper-buttons">
         <button @click="onPressureClick('minus')">- 5 cm</button>
         <button @click="onPressureClick('plus')">+ 5 cm</button>
-      </div>
-      <ProgressComponent :percentage="startValLength" />
+      </div> -->
+      <ProgressComponent :percentage="uiState.panelSliderLengthPercentage" />
     </PanelComponent>
   </div>
 </template>
