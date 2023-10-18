@@ -11,9 +11,9 @@ app.mount('#app');
 const { uiState, count } = useUI();
 
 watch(
-  () => uiState.value.sceneLoaded,
-  (loaded) => {
-    if (loaded) {
+  [() => uiState.value.videoLoaded, () => uiState.value.sceneLoaded],
+  ([videoLoaded, sceneLoaded]) => {
+    if (videoLoaded && sceneLoaded) {
       count();
     }
   }

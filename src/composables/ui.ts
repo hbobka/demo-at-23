@@ -37,14 +37,14 @@ export const useUI = () => {
   };
 
   const count = () => {
-    const duration = 28000;
+    const duration = 27000;
     const start = 0;
     const end = 100;
-  
+
     const range = end - start;
     let curr = start;
     const timeStart = Date.now();
-  
+
     const loop = () => {
       let elaps = Date.now() - timeStart;
       if (elaps > duration) elaps = duration;
@@ -56,10 +56,12 @@ export const useUI = () => {
         requestAnimationFrame(loop);
       } else {
         uiState.value.panelSliderLengthPercentage = 0;
-        count();
+        setTimeout(() => {
+          count();
+        }, 7500);
       }
     };
-  
+
     requestAnimationFrame(loop);
   };
 
