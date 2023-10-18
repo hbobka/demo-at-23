@@ -21,12 +21,12 @@ defineProps({
   display: flex;
   justify-content: space-between;
   height: 1rem;
-  padding-left: 2.75rem ;
+  padding-left: 2.75rem;
   width: 100%;
 }
 
 .box {
-  background: rgba(0,0,0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   height: 2rem;
   position: relative;
   width: 100%;
@@ -74,4 +74,5 @@ defineProps({
   top: 0;
   z-index: 0;
 }
+
 </style>
