@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import PanelComponent from '@/components/ui/PanelComponent.vue';
+import ProgressComponent from '@/components/ui/ProgressComponent.vue';
 
 const startValPressure = ref(50);
 const onPressureClick = (plusOrMinus: 'plus' | 'minus') => {
@@ -15,16 +16,26 @@ const headingPressure = computed(() => {
   <div class="panel-wrapper">
     <!-- pressure -->
     <PanelComponent :heading="headingPressure" icon="field_64x64">
+      <div class="progressbars">
+        <div>
+          <ProgressComponent :percentage="startValPressure" />
+        </div>
+        <div>
+          <ProgressComponent :percentage="startValPressure" />
+        </div>
+      </div>
       <div class="panel-wrapper-buttons">
         <button @click="onPressureClick('minus')">- 5 bar</button>
         <button @click="onPressureClick('plus')">+ 5 bar</button>
       </div>
-      <button @click="startValPressure = 50">Reset</button>
     </PanelComponent>
   </div>
 </template>
 
 <style scoped>
+.progressbars > div {
+  margin-bottom: 1rem;
+}
 .panel-wrapper {
   position: absolute;
   left: 1rem;
@@ -34,7 +45,7 @@ const headingPressure = computed(() => {
 
 .panel-wrapper-buttons {
   display: flex;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   width: 100%;
 }
 

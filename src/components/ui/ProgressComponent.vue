@@ -1,6 +1,7 @@
 <script setup lang="ts">
 defineProps({
-  percentage: Number
+  percentage: Number,
+  showTicks: Boolean,
 });
 </script>
 

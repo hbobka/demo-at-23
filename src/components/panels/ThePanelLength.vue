@@ -22,7 +22,7 @@ const headingLength = computed(() => {
       <ProgressComponent :percentage="uiState.panelSliderLengthPercentage" />
     </PanelComponent>
   </div>
-</template>
+</template> 
 
 <style scoped>
 .panel-wrapper {
