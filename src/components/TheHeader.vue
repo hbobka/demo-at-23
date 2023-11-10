@@ -3,14 +3,13 @@ import { computed } from 'vue';
 import ButtonComponent from '@/components/ui/ButtonComponent.vue';
 import ToolbarComponent from '@/components/ui/ToolbarComponent.vue';
 
-const fieldName = computed(() => 'Hinter dem Waldrand, 24 ha');
+const fieldName = computed(() => 'An der Bahn, 24 ha');
 const currentTime = computed(() => '14:31');
 </script>
 
 <template>
   <header>
     <div>
-      <ButtonComponent icon="field_64x64" />
       <ButtonComponent icon="field_64x64" :text="fieldName" />
     </div>
     <div>
@@ -21,7 +20,6 @@ const currentTime = computed(() => '14:31');
         :icons="['wifi_40x40', 'internet_40x40', 'agrirouter_40x40', 'rtk_40x40']"
         :text="currentTime"
       />
-      <ButtonComponent icon="tractor_64x64" />
     </div>
   </header>
 </template>

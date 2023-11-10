@@ -50,7 +50,7 @@ const onClick = (panel: panelType) => {
 const activeColor = '#000';
 const buttons: { name: panelType; icon: string }[] = [
   { name: 'length', icon: 'fa-ruler-horizontal' },
-  { name: 'utilization', icon: 'fa-chart-simple' },
+  // { name: 'utilization', icon: 'fa-chart-simple' },
   { name: 'pressure', icon: 'fa-gauge' },
   { name: 'humidity', icon: 'fa-droplet' }
 ];

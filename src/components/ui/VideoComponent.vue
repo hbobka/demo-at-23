@@ -102,4 +102,15 @@ video {
   justify-content: space-between;
   margin-left: 0.5rem;
 }
+
+@media (max-width: 1500px) {
+  .video-window__action-buttons {
+    display: none;
+  }
+
+  video {
+    width: 384px;
+    height: 216px
+  }
+}
 </style>
